@@ -26,6 +26,14 @@ It has no special requirements, but is recomanded to know how to use SvelteKit, 
 
 https://github.com/user-attachments/assets/83c306b9-ecca-48d1-b050-780acd310d33
 
+## Demo Sign message Frame
+
+https://github.com/user-attachments/assets/b087d0e4-e054-46fc-a433-e69a83ce1f51
+
+## Not allowing outside-of-frame context
+
+https://github.com/user-attachments/assets/85da3b2f-571f-42eb-80d2-2a43253a0fd0
+
 ## Deployed Version
 
 Deployed at: [https://frames.flashsoft.eu](https://frames.flashsoft.eu)

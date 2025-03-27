@@ -1,14 +1,32 @@
 <script lang="ts">
     import { page as SveltePage } from '$app/state';
-    import { getAccount } from '@wagmi/core'
+    import { getAccount, watchAccount } from '@wagmi/core'
     import { generateURLFCFrameEmbed } from '$lib/frames/global/client/fc-frame-v2';
     import { config } from "$lib/config";
-    import { frameSDK, frameWalletConfig, isWalletReady  } from "$lib/stores/global/main"
+    import { frameWalletConfig, isWalletReady  } from "$lib/stores/global/main"
     import type { WalletConfig } from "$lib/types/frame-sdk"
     import SimpleLoader from "../SimpleLoader.svelte";
     import { getMerklAppData, getRewardsForUser, formatTokenAmount, claim } from "$lib/frames/merkel/client"
     import ErrorAlert from '../ErrorAlert.svelte';
+    import { onDestroy } from 'svelte'
 
+    const setChainClaimed = (chainId: number) => {
+          const recentClaims = JSON.parse(localStorage.getItem('recentClaims') || '{}')
+          recentClaims[chainId] = new Date().getTime()
+    }
+
+    const getRecentClaims = () => {
+        const resultRecentClaims = [] as number[]
+        const recentClaims = JSON.parse(localStorage.getItem('recentClaims') || '{}')
+        for (const key in recentClaims) {
+            if (Object.prototype.hasOwnProperty.call(recentClaims, key)) {
+                if (recentClaims[key] > new Date().getTime() - 1000 * 60 * 60) {
+                    resultRecentClaims.push(parseInt(key))
+                }
+            }
+        }
+        return resultRecentClaims
+    }
 
     type tableEntry = {
         chainId: number
@@ -33,6 +51,8 @@
     
     let tableData = $state<tableEntry[]>([] as tableEntry[])
     let totalUSDValue = $state<number>(0)
+    let unWatchAccount: () => void
+
 
     let claimParams = {
     } as {
@@ -67,14 +87,15 @@
         const rewards = await getRewardsForUser({
             address: address as `0x${string}`,
         })
-
-        console.log(rewards)
         
         const keys = Object.keys(rewards)
 
         const symbols = [] as string[]
 
-        for (const key of keys) {
+        const filterRecentClaims = getRecentClaims()
+        const filtredKeys = keys.filter(key => !filterRecentClaims.includes(parseInt(key)))
+
+        for (const key of filtredKeys) {
             const chainId = parseInt(key)
             const tokenData = rewards[key]['tokenData']
             const tokenDataKeys = Object.keys(tokenData)
@@ -149,7 +170,6 @@
                 }
             }
         }
-        console.log(claimParams)
         totalUSDValue = totalValue
         loadingRewards = false
     }
@@ -169,10 +189,10 @@
             params: claimParams[chainId],
             walletConfig: $frameWalletConfig
         })
-        console.log(promptTx)
-
+ 
             if(promptTx.success) {
                 removeChainId(chainId)
+                setChainClaimed(chainId)
             } else {
                 error = promptTx.error || 'Something went wrong'
                 errorShow = true
@@ -185,7 +205,18 @@
              const account = await getAccount($frameWalletConfig as WalletConfig)
              address = account.address
              checkRewards()
+
+             unWatchAccount = watchAccount($frameWalletConfig, {
+                onChange(account) { 
+                    address = account.address
+                    checkRewards()
+            },
+            })
         }
+    })
+
+    onDestroy(() => {
+        if(unWatchAccount) unWatchAccount()
     })
 
 </script>
