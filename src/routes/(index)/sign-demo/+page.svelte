@@ -20,10 +20,10 @@
     
      
 
-    const ogImage = `${config.resolvedBaseUrl}/images/ogs/ffe-merkl-rewards.webp`
+    const ogImage = `${config.resolvedBaseUrl}/images/ogs/ffe-og-sign.webp`
     const pageUrl = SveltePage.url.href.replace('http:', 'https:')
-    const pageTitle = 'Merkel Rewards Frame'
-    const pageDescription = 'Frame for Merkel Rewards'
+    const pageTitle = 'Sign Demo Frame'
+    const pageDescription = 'Frame for signing messages'
 
     const doSign = async () => {
         error = ''

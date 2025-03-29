@@ -1,10 +1,10 @@
-export const IS_DEV_ENABLED = true;
+export const IS_DEV_ENABLED = false;
 const baseSiteUrl = 'https://frames.flashsoft.eu';
 const devBaseUrl = 'https://tun-5545.flashsoft.eu';
 
 
 export const config = {
-    siteName: 'frames.flashsoft.eu',
+    siteName: 'SveleteKit Starter Mini-App',
     baseSiteUrl,
     devBaseUrl,
     IS_DEV_ENABLED,

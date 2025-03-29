@@ -1,6 +1,7 @@
 import { config } from './index'
 const IS_DEV_ENABLED = config.IS_DEV_ENABLED
- 
+import type { TriggerConfig } from '$lib/types/farcaster-frame-v2'
+
 export const FCConfig = {
     JFS: { 
         // JSON Farcaster Signature for ./well-known account association
@@ -38,7 +39,7 @@ export const FCConfig = {
         // Max 512 characters.
         // Image must be 200x200px and less than 1MB.
         // Example: "https://yoink.party/img/icon.png"
-        iconUrl:  IS_DEV_ENABLED ? config.devBaseUrl + '/favicon.png' : config.baseSiteUrl + '/favicon.png' ,
+        iconUrl:  IS_DEV_ENABLED ? config.devBaseUrl + '/hotlink-ok/favicon.png' : config.baseSiteUrl + '/hotlink-ok/favicon.png' ,
 
         // Default image to show when frame is rendered in a feed.
         // Max 512 characters.
@@ -55,7 +56,7 @@ export const FCConfig = {
         // Max 512 characters.
         // Image must be 200x200px and less than 1MB.
         // Example: "https://yoink.party/img/splash.png"
-        splashImageUrl: IS_DEV_ENABLED ? config.devBaseUrl + '/favicon.png' : config.baseSiteUrl + '/favicon.png' ,
+        splashImageUrl: IS_DEV_ENABLED ? config.devBaseUrl + '/hotlink-ok/favicon.png' : config.baseSiteUrl + '/hotlink-ok/favicon.png' ,
 
         // Hex color code.
         // Example: "#eeeee4"
@@ -67,5 +68,25 @@ export const FCConfig = {
         // Required if the frame application uses notifications.
         // Example: "https://yoink.party/webhook"
         webhookUrl:  IS_DEV_ENABLED ? config.devBaseUrl + '/api/fc-webhook' :  config.baseSiteUrl + '/api/fc-webhook',
+
+        triggers: [
+            {   
+                // Type of trigger, either cast or composer. Required.
+                type: 'cast',
+    
+                // Unique ID. Required. Reported to the frame.
+                // Example: "yoink-score"
+                id: 'flashsoft-blog-id',
+    
+                // Handler URL. Required.
+                // Example: "https://yoink.party/triggers/cast"
+                url: IS_DEV_ENABLED ? config.devBaseUrl : config.baseSiteUrl
+            },
+            {
+                type: 'composer',
+                id: 'flashsoft-blog-id',
+                url: IS_DEV_ENABLED ? config.devBaseUrl : config.baseSiteUrl
+            }
+        ] as TriggerConfig[]
     }
 }
