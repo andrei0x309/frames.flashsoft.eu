@@ -21,6 +21,8 @@
 		return context;
 	};
 
+	export const prerender = true
+
 	// const getAddress = async (sdk:FrameSdk) => {
 	// 	await sdk.context;
 	// 	console.log(await getAccount(walletConfig as WalletConfig))
