@@ -56,7 +56,33 @@
 	});
 
 	let { children } = $props();
+
+	import { page as SveltePage } from '$app/state';
+    import { config } from "$lib/config";
+
+
+    import { generateURLFCFrameEmbed } from '$lib/frames/global/client/fc-frame-v2';
+
+
+    const ogImage = `${config.resolvedBaseUrl}/images/ogs/ffe-og-index.webp`
+    const pageUrl = SveltePage.url.href.replace('http:', 'https:')
+    const pageTitle = 'SveleteKit starter Mini App'
+    const pageDescription = 'Mini app starter for SvelteKit using Farcaster, 2 demo apps are included'
 </script>
+
+<svelte:head>
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription}>
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`${pageUrl}`} />
+    <meta property="og:image" content={ogImage} />
+    
+     
+    <meta name="fc:frame" content={generateURLFCFrameEmbed(ogImage, pageUrl)} />
+    
+    </svelte:head>
 
 <Shell>
 	<Header />
