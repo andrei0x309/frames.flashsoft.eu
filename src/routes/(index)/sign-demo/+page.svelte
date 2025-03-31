@@ -22,8 +22,8 @@
 
     const ogImage = `${config.resolvedBaseUrl}/images/ogs/ffe-og-sign.webp`
     const pageUrl = SveltePage.url.href.replace('http:', 'https:')
-    const pageTitle = 'Sign Demo Frame'
-    const pageDescription = 'Frame for signing messages'
+    const pageTitle = 'Sign Demo Mini App'
+    const pageDescription = 'Farcaster Mini App for signing messages'
 
     const doSign = async () => {
         error = ''

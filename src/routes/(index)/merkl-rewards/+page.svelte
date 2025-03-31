@@ -177,8 +177,8 @@
 
     const ogImage = `${config.resolvedBaseUrl}/images/ogs/ffe-merkl-rewards.webp`
     const pageUrl = SveltePage.url.href.replace('http:', 'https:')
-    const pageTitle = 'Merkel Rewards Frame'
-    const pageDescription = 'Frame for Merkel Rewards'
+    const pageTitle = 'Merkel Rewards Mini App'
+    const pageDescription = 'Mini App for Merkel Rewards'
 
     const doClaim = async (chainId: number) => {
         error = ''
