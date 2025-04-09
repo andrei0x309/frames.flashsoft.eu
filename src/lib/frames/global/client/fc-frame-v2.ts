@@ -1,6 +1,16 @@
 import { FCConfig } from '$lib/config/farcaster';
 
-export const generateURLFCFrameEmbed = (featureImage = '', url: string) => {
+export const generateURLFCFrameEmbed = ({
+  featureImage = '', 
+  url,
+  buttonTitle = 'Open Frame',
+  appName = 'Flashsoft.eu Frames'
+}: {
+  featureImage?: string,
+  url: string,
+  buttonTitle?: string,
+  appName?: string
+}) => {
     const FrameEmbed = {
         // Frame spec version. Required.
         // Example: "next"
@@ -17,7 +27,7 @@ export const generateURLFCFrameEmbed = (featureImage = '', url: string) => {
           // Button text.
           // Max length of 32 characters.
           // Example: "Yoink Flag"
-          title: 'Open Frame',
+          title: buttonTitle,
       
           // Action attributes
           action: {
@@ -27,7 +37,7 @@ export const generateURLFCFrameEmbed = (featureImage = '', url: string) => {
             // App name
             // Max length of 32 characters.
             // Example: "Yoink!"
-            name: 'Flashsoft.eu Frames',
+            name: appName,
       
             // Frame launch URL.
             // Max 512 characters.

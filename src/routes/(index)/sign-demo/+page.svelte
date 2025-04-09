@@ -69,7 +69,11 @@
 <meta property="og:image" content={ogImage} />
 
  
-<meta name="fc:frame" content={generateURLFCFrameEmbed(ogImage, pageUrl)} />
+<meta name="fc:frame" content={generateURLFCFrameEmbed({
+    url: pageUrl,
+    featureImage: ogImage,
+    buttonTitle: 'Sign Msg Demo',
+})} />
 
 </svelte:head>
 

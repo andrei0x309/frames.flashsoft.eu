@@ -23,6 +23,13 @@
         goto(routes['Sign-message-demo-Frame'])
       }} type="button" class="btn preset-outlined-success-500">Open</button>
     </div>
+    <div class="flex justify-between items-center gap-4">
+      <p>Composer Trigger demo</p>
+      <button onclick={(e) => {
+        e.preventDefault();
+        goto(routes['Composer-demo-Frame'])
+      }} type="button" class="btn preset-outlined-success-500">Open</button>
+    </div>
     <hr class="hr" />
     <div class="flex justify-between items-center gap-4">
       <p><small>Other mini apps may be available in the future</small></p>

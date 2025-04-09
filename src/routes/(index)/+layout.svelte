@@ -79,8 +79,10 @@
     <meta property="og:url" content={`${pageUrl}`} />
     <meta property="og:image" content={ogImage} />
     
-     
-    <meta name="fc:frame" content={generateURLFCFrameEmbed(ogImage, pageUrl)} />
+    <meta name="fc:frame" content={generateURLFCFrameEmbed({
+		url:pageUrl,
+		featureImage:ogImage,
+	})} />
     
     </svelte:head>
 
@@ -92,4 +94,10 @@
 	{:else}
 		{@render children()}
 	{/if}
+    <!-- Small footer link to source on github -->
+	<p class="text-center text-xs text-gray-500">
+		<a href="https://github.com/andrei0x309/frames.flashsoft.eu" target="_blank" class="underline">
+		Source on Github
+		</a>
+	</p>
 </Shell>

@@ -39,5 +39,8 @@ https://github.com/user-attachments/assets/85da3b2f-571f-42eb-80d2-2a43253a0fd0
 Deployed at: [https://frames.flashsoft.eu](https://frames.flashsoft.eu)
 
 Links that work in cast as a v2 frame:
+
 - [https://frames.flashsoft.eu/](https://frames.flashsoft.eu/) (index)
 - [https://frames.flashsoft.eu/merkl-rewards](https://frames.flashsoft.eu/merkl-rewards) (merkl rewards frame)
+- [https://frames.flashsoft.eu/sign-demo](https://frames.flashsoft.eu/sign-demo) (Do message sign demo)
+- [https://frames.flashsoft.eu/composer-demo](https://frames.flashsoft.eu/composer-demo) (Trigger composer demo)
