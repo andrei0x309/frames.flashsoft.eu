@@ -18,7 +18,7 @@
 
     const ogImage = `${config.resolvedBaseUrl}/images/ogs/ffe-og-index.webp`
     const pageUrl = SveltePage.url.href.replace('http:', 'https:')
-    const pageTitle = 'Trigger composer demo'
+    const pageTitle = 'Mini Apps Demo Actions'
     const pageDescription = 'Farcaster Mini App to trigger the composer action'
  
 
@@ -45,7 +45,13 @@
         $frameSDK.actions.composeCast({
             text: composeText,
         })
+    }
 
+    const triggerSIWF = async () => {
+        const data = await $frameSDK.actions.signIn({
+            nonce: '1234567890',
+        })
+        console.log(data)
     }
 
 </script>
@@ -73,11 +79,11 @@
 {:else}
 
 <section class="w-[98%] space-y-4 p-2 border-neutral-700 border-2 rounded-lg mx-auto mt-4">
-    <h3 class="h5">Demo Composer</h3>
+    <h3 class="h5">Mini Apps Demo Actions</h3>
     <p class="h6 text-[0.9rem] inline">User address:</p>
     <p class="h6 text-[0.86rem] inline"><strong>{`${address?.slice(0,6)}...${address?.slice(-4)}`}</strong></p>
     <div class="flex justify-between items-center gap-4 flex-col">
- 
+        <button class="btn preset-outlined-success-500 p-2 mx-auto text-[0.8rem]" onclick={triggerSIWF}>Trigger SIWF</button>
         <button class="btn preset-outlined-success-500 p-2 mx-auto text-[0.8rem]" onclick={triggerComposer}>Trigger Composer</button>
  
     </div>

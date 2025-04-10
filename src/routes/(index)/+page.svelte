@@ -24,10 +24,10 @@
       }} type="button" class="btn preset-outlined-success-500">Open</button>
     </div>
     <div class="flex justify-between items-center gap-4">
-      <p>Composer Trigger demo</p>
+      <p>Mini Apps Actions demo</p>
       <button onclick={(e) => {
         e.preventDefault();
-        goto(routes['Composer-demo-Frame'])
+        goto(routes['Mini-apps-demo-actions'])
       }} type="button" class="btn preset-outlined-success-500">Open</button>
     </div>
     <hr class="hr" />
