@@ -54,6 +54,19 @@
         console.log(data)
     }
 
+    const triggerOpenURL = async () => {
+        const data = await $frameSDK.actions.openUrl('https://blog.flashsoft.eu')
+        console.log(data)
+    }
+
+    const navigateUsingWindowOpen = async () => {
+        window.open('https://blog.flashsoft.eu', '_blank')
+    }
+
+    const navigateUsingWindowLocation = async () => {
+        window.location.href = 'https://blog.flashsoft.eu'
+    }
+
 </script>
 
 <svelte:head>
@@ -85,6 +98,9 @@
     <div class="flex justify-between items-center gap-4 flex-col">
         <button class="btn preset-outlined-success-500 p-2 mx-auto text-[0.8rem]" onclick={triggerSIWF}>Trigger SIWF</button>
         <button class="btn preset-outlined-success-500 p-2 mx-auto text-[0.8rem]" onclick={triggerComposer}>Trigger Composer</button>
+        <button class="btn preset-outlined-success-500 p-2 mx-auto text-[0.8rem]" onclick={triggerOpenURL}>Trigger Open URL</button>
+        <button class="btn preset-outlined-success-500 p-2 mx-auto text-[0.8rem]" onclick={navigateUsingWindowOpen}>Navigate using window.open</button>
+        <button class="btn preset-outlined-success-500 p-2 mx-auto text-[0.8rem]" onclick={navigateUsingWindowLocation}>Navigate using window.location.href</button>
  
     </div>
 </section>
