@@ -30,6 +30,13 @@
         goto(routes['Mini-apps-demo-actions'])
       }} type="button" class="btn preset-outlined-success-500">Open</button>
     </div>
+    <div class="flex justify-between items-center gap-4">
+      <p>Mobile gestures navigation demo</p>
+      <button onclick={(e) => {
+        e.preventDefault();
+        goto(routes['Mobile-gestures-navigation'])
+      }} type="button" class="btn preset-outlined-success-500">Open</button>
+    </div>
     <hr class="hr" />
     <div class="flex justify-between items-center gap-4">
       <p><small>Other mini apps may be available in the future</small></p>
