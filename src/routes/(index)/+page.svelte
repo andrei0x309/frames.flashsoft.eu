@@ -4,6 +4,9 @@
     import {routes} from '$lib/config/routes'
     import { goto } from '$app/navigation';
 
+    const copyToClipboard = (text: string) => {
+      navigator.clipboard.writeText(text);
+    }
   </script>
   
 
@@ -13,11 +16,21 @@
       <p>Merkl.xyz LP Rewards</p>
       <button onclick={(e) => {
         e.preventDefault();
+        copyToClipboard(`${window.location.origin}${routes['Merkel-Rewards-Frame']}`)
+         }}
+        type="button" class="btn preset-outlined-success-500">Copy URL</button>
+      <button onclick={(e) => {
+        e.preventDefault();
         goto(routes['Merkel-Rewards-Frame'])
       }} type="button" class="btn preset-outlined-success-500">Open</button>
     </div>
     <div class="flex justify-between items-center gap-4">
       <p>Sign Message Demo</p>
+      <button onclick={(e) => {
+        e.preventDefault();
+        copyToClipboard(`${window.location.origin}${routes['Sign-message-demo-Frame']}`)
+         }}
+        type="button" class="btn preset-outlined-success-500">Copy URL</button>
       <button onclick={(e) => {
         e.preventDefault();
         goto(routes['Sign-message-demo-Frame'])
@@ -27,11 +40,21 @@
       <p>Mini Apps Actions demo</p>
       <button onclick={(e) => {
         e.preventDefault();
+        copyToClipboard(`${window.location.origin}${routes['Mini-apps-demo-actions']}`)
+         }}
+        type="button" class="btn preset-outlined-success-500">Copy URL</button>
+      <button onclick={(e) => {
+        e.preventDefault();
         goto(routes['Mini-apps-demo-actions'])
       }} type="button" class="btn preset-outlined-success-500">Open</button>
     </div>
     <div class="flex justify-between items-center gap-4">
       <p>Mobile gestures navigation demo</p>
+      <button onclick={(e) => {
+        e.preventDefault();
+        copyToClipboard(`${window.location.origin}${routes['Mobile-gestures-navigation']}`)
+         }}
+        type="button" class="btn preset-outlined-success-500">Copy URL</button>
       <button onclick={(e) => {
         e.preventDefault();
         goto(routes['Mobile-gestures-navigation'])
