@@ -50,7 +50,7 @@ export const FCConfig = {
         // Default button title to use when frame is rendered in a feed.
         // Max 32 characters.
         // Example: "🚩 Start"
-        buttonTitle: 'Open Frame',
+        buttonTitle: 'Open App',
 
         // Splash image URL.
         // Max 512 characters.
@@ -87,6 +87,18 @@ export const FCConfig = {
                 id: 'flashsoft-blog-id',
                 url: IS_DEV_ENABLED ? config.devBaseUrl : config.baseSiteUrl
             }
-        ] as TriggerConfig[]
+        ] as TriggerConfig[],
+
+        // Extended Metadata.
+        subtitle: config.extendedMetadata.subtitle,
+        description: config.extendedMetadata.description,
+        screenshotUrls: config.extendedMetadata.screenshotUrls,
+        primaryCategory: config.extendedMetadata.primaryCategory,
+        tags: config.extendedMetadata.tags,
+        heroImageUrl: IS_DEV_ENABLED ? config.devBaseUrl + '/images/ogs/ffe-og-index.webp' : config.baseSiteUrl  + '/images/ogs/ffe-og-index.webp',
+        tagline: config.extendedMetadata.description,
+        ogTitle: config.siteName,
+        ogDescription: config.extendedMetadata.description,
+        ogImageUrl: IS_DEV_ENABLED ? config.devBaseUrl + '/images/ogs/ffe-og-index.webp' : config.baseSiteUrl  + '/images/ogs/ffe-og-index.webp',
     }
 }

@@ -1,4 +1,11 @@
-### 03.27.2025 
+### 04.24.2025
+
+- added new demo pages to mini app
+- rebranded many names to mini app instead of frames
+- added extended mini-app metadata config
+- added a CI package to push commits to social
+
+### 03.27.2025
 
 - added changelog
 - added new simple sign demo frame

@@ -3,8 +3,8 @@ import { FCConfig } from '$lib/config/farcaster';
 export const generateURLFCFrameEmbed = ({
   featureImage = '', 
   url,
-  buttonTitle = 'Open Frame',
-  appName = 'Flashsoft.eu Frames'
+  buttonTitle = 'Open App',
+  appName = 'Flashsoft.eu Farcaster Mini Apps'
 }: {
   featureImage?: string,
   url: string,
